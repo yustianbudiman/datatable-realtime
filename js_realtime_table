@@ -9,32 +9,32 @@ var table = $('#tableAppPendukung').DataTable({
   			},
     
 	"columns" : [
-		{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.status+"</span>";
+		{ "ajax":  "No", className: "center", "width": "5%", render: function (ajax, type, row,meta) {
+    	return meta.row + meta.settings._iDisplayStart + 1;
     		}
     	},
-		{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.judul+"</span>";
+		{ "ajax": 'judul', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.judul;
     		}
     	}, 
-    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.sender+"</span>";
+    	{ "ajax": 'user', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.sender;
     		}
     	}, 
     	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
     	return full.message+"<br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.sender_last+"</span>";
     		}
     	}, 
-    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.timestamp+"</span>";
+    	{ "ajax": 'timestamp', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.TIMESTAMP;
     		}
     	}, 
-    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.admi+"</span>";
+    	{ "ajax": 'admin', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.admin;
     		}
     	}, 
-    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
-    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.token+"</span>";
+    	{ "ajax": 'token', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.token;
     		}
     	}, 
 	],
@@ -42,5 +42,3 @@ var table = $('#tableAppPendukung').DataTable({
 	setInterval( function () {
 	    table.ajax.reload( null, false ); // user paging is not reset on reload
 	}, 3000 );
-	
-});
