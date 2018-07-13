@@ -1,0 +1,46 @@
+var table = $('#tableAppPendukung').DataTable({
+    // "url": 'Conversation_admin/get_list_admin_messages',
+    'ajax'   : {
+    "type"   : "get",
+    "url"    : 'Conversation_admin/get_list_admin_messages',
+    "dataSrc": function (json) {
+    			return json;
+    		  }
+  			},
+    
+	"columns" : [
+		{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.status+"</span>";
+    		}
+    	},
+		{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.judul+"</span>";
+    		}
+    	}, 
+    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.sender+"</span>";
+    		}
+    	}, 
+    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return full.message+"<br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.sender_last+"</span>";
+    		}
+    	}, 
+    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.timestamp+"</span>";
+    		}
+    	}, 
+    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.admi+"</span>";
+    		}
+    	}, 
+    	{ "ajax": 'message', className: "left", "width": "10%", render: function (ajax, type, full) {
+    	return " <br/><br/><span class='label label-info arrowed-in arrowed-in-right'><i>by </i>"+full.token+"</span>";
+    		}
+    	}, 
+	],
+	} );
+	setInterval( function () {
+	    table.ajax.reload( null, false ); // user paging is not reset on reload
+	}, 3000 );
+	
+});
