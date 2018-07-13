@@ -1,7 +1,7 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js" type="text/javascript"></script>
 
 <script src="https://cdn.datatables.net/v/dt/dt-1.10.18/datatables.min.js"></script>
-<script src="js_datatable.js"></script>
+<script src="js_realtime_table.js"></script>
 
 <table id="tableAppPendukung"
 	class="table table-striped table-bordered table-hover">
